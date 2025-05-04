@@ -20,7 +20,10 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, '../client/dist')));
 
 app.use('/api', routes);
-app.use('*', htmlRoutes);      
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../client/dist/index.html'));
+  });
+        
 
 app.listen(PORT, () => console.log(`Listening on PORT: ${PORT}`));
 
