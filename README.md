@@ -29,7 +29,7 @@ Open the application in your Browser and enter a city name in the search bar
 view the current and forcasted weather
 click on a saved City to refetch weather information
 
-##🌐 Live Demo
+## 🌐 Live Demo
 Check out the live app here: https://your-render-url.onrender.com
 
 ## Questions
