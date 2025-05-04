@@ -4,7 +4,6 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 
 import routes from './routes/index.js';
-import htmlRoutes from './routes/htmlRoutes.js';
 
 dotenv.config();
 
@@ -20,7 +19,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, '../client/dist')));
 
 app.use('/api', routes);
-app.get('*', (req, res) => {
+app.get('*', (_req, res) => {
     res.sendFile(path.join(__dirname, '../client/dist/index.html'));
   });
         
