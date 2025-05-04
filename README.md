@@ -31,3 +31,8 @@ click on a saved City to refetch weather information
 
 ##🌐 Live Demo
 Check out the live app here: https://your-render-url.onrender.com
+
+## Questions
+If you have any questions about the project, please feel free to contact me:
+Github: Scencer2
+Email: Scencer2@yahoo.com
