@@ -2,6 +2,8 @@ import dotenv from 'dotenv';
 import axios from 'axios';
 
 dotenv.config();
+console.log('[weatherService] API key loaded:', process.env.WEATHER_API_KEY);
+
 
 interface Coordinates {
   lat: number;
@@ -13,8 +15,8 @@ class Weather {
     public city: string,
     public date: string,
     public icon: string,
-    public description: string,
-    public temperature: number,
+    public icondescription: string,
+    public tempF: number,
     public humidity: number,
     public windSpeed: number
   ) {}
@@ -23,7 +25,7 @@ class Weather {
 class WeatherService {
   private baseGeocodeURL = 'http://api.openweathermap.org/geo/1.0/direct';
   private baseWeatherURL = 'https://api.openweathermap.org/data/2.5/forecast';
-  private apiKey = process.env.OPENWEATHER_API_KEY!;
+  private apiKey = process.env.WEATHER_API_KEY!;
 
   private async fetchLocationData(query: string) {
     const url = `${this.baseGeocodeURL}?q=${query}&limit=1&appid=${this.apiKey}`;
@@ -83,6 +85,8 @@ class WeatherService {
     const locationData = await this.fetchLocationData(city);
     const coordinates = this.destructureLocationData(locationData);
     const weatherData = await this.fetchWeatherData(coordinates);
+    console.log('[weatherService] full weatherData response:', JSON.stringify(weatherData, null, 2));
+
     const current = this.parseCurrentWeather(weatherData);
     const forecast = this.buildForecastArray(current, weatherData.list);
     return {

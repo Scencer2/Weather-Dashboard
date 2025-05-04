@@ -1,10 +1,12 @@
 import { Router, Request, Response } from 'express';
-import WeatherService from '../../service/weatherService';
-import HistoryService from '../../service/historyService';
+import WeatherService from '../../service/weatherService.js';
+import HistoryService from '../../service/historyService.js';
 
 const router = Router();
 
 router.post('/', async (req: Request, res: Response) => {
+  console.log(' POST /api/weather called with:', req.body);
+  
   const { city } = req.body;
   if (!city) {
     return res.status(400).json({ error: 'City is required' });
