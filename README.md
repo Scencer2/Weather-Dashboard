@@ -30,7 +30,7 @@ view the current and forcasted weather
 click on a saved City to refetch weather information
 
 ## 🌐 Live Demo
-Check out the live app here: https://your-render-url.onrender.com
+Check out the live app here: https://weather-dashboard-3lol.onrender.com
 
 ## Questions
 If you have any questions about the project, please feel free to contact me:
